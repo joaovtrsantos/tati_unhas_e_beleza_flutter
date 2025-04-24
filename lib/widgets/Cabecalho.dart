@@ -8,8 +8,8 @@ class Cabecalho extends StatelessWidget implements PreferredSizeWidget {
     return SizedBox(
       width: double.infinity,
       child: AppBar(
-        title: Text('TATY UNHAS E BELEZA', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.pink,
+        title: Text('TATY UNHAS & BELEZA', style: TextStyle(color: Colors.black)),
+        backgroundColor: Color.fromARGB(255, 251, 238, 248),
         centerTitle: true,
       ),
     );
