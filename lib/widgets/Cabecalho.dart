@@ -9,7 +9,7 @@ class Cabecalho extends StatelessWidget implements PreferredSizeWidget {
       width: double.infinity,
       child: AppBar(
         title: Text('TATY UNHAS & BELEZA', style: TextStyle(color: Colors.black)),
-        backgroundColor: Color.fromARGB(255, 251, 238, 248),
+        backgroundColor: Color.fromARGB(255, 255, 230, 240),
         centerTitle: true,
       ),
     );
