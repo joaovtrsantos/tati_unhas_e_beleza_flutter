@@ -8,9 +8,9 @@ class QuemSomos extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 35),
       color: const Color.fromARGB(255, 255, 230, 240), // fundo rosa claro
-      height: 237,
+      height: 210,
       width: 440,
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
