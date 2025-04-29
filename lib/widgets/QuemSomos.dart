@@ -6,7 +6,7 @@ class QuemSomos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 50),
+      margin: const EdgeInsets.only(top: 35),
       color: const Color.fromARGB(255, 255, 230, 240), // fundo rosa claro
       height: 237,
       width: 440,
