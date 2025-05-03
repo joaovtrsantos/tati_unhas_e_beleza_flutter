@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/Login.dart';
 
 class BotaoAgendamento extends StatelessWidget {
   const BotaoAgendamento({super.key});
@@ -11,9 +12,14 @@ class BotaoAgendamento extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 5),
           child: ElevatedButton(
-            onPressed: () => (),
+            onPressed: () {
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) => const Login())
+              );
+            },
             style: ButtonStyle(
-              backgroundColor: WidgetStateProperty.all(Color.fromARGB(255, 245, 200, 230)),
+              backgroundColor: WidgetStateProperty.all(Color.fromARGB(255, 255, 230, 240)),
               shape: WidgetStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4)
               ))
