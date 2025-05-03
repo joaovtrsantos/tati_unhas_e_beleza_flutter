@@ -6,7 +6,7 @@ class Slogan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 40),
+      margin: EdgeInsets.only(top: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         verticalDirection: VerticalDirection.down,

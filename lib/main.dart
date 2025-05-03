@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/BotaoAgendamento.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Cabecalho.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Capa.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Informacoes.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Logo.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/NossaEquipe.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/QuemSomos.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/Rodape.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Slogan.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/SubtextoSlogan.dart';
 
@@ -24,7 +26,10 @@ class TatiUnhasEBelezaAppState extends State<TatiUnhasEBelezaApp>{
             Capa(),
             Slogan(),
             SubtextoSlogan(),
-            BotaoAgendamento()
+            BotaoAgendamento(),
+            QuemSomos(),
+            NossaEquipe(),
+            Rodape()
             // Informacoes()
           ],
         ),
