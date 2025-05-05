@@ -1,49 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/BotaoAgendamento.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Cabecalho.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Capa.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Logo.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/NossaEquipe.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/QuemSomos.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Rodape.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Slogan.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/SubtextoSlogan.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/VerificadorLogado.dart';
 
-main() {
-  runApp(TatiUnhasEBelezaApp());
+Future<void> main () async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(TatyApp());
 }
 
-class TatiUnhasEBelezaAppState extends State<TatiUnhasEBelezaApp>{
+class TatyApp extends StatelessWidget {
+  const TatyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: Cabecalho(),
-        body: ListView(
-          children: [
-            // Logo(),
-            Capa(),
-            Slogan(),
-            SubtextoSlogan(),
-            BotaoAgendamento(),
-            QuemSomos(),
-            NossaEquipe(),
-            Rodape()
-            // Informacoes()
-          ],
-        ),
-      ),
+      home: const VerificadorLogado(),
     );
   }
-
 }
 
-class TatiUnhasEBelezaApp extends StatefulWidget {
-  const TatiUnhasEBelezaApp({super.key});
-
-  @override
-  TatiUnhasEBelezaAppState createState() {
-    return TatiUnhasEBelezaAppState();
-  }
-}
