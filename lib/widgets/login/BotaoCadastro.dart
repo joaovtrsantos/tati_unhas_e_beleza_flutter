@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BotaoCadastro extends StatelessWidget {
-  const BotaoCadastro({super.key});
+  const BotaoCadastro({
+    this.isLogin = true,
+    required this.onPressed,
+    super.key,
+  });
+
+  final bool isLogin;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +16,7 @@ class BotaoCadastro extends StatelessWidget {
       width: 335,
       height: 52,
       child: ElevatedButton(
-        onPressed: null,
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(Colors.white),
           shape: WidgetStateProperty.all(
@@ -17,8 +24,10 @@ class BotaoCadastro extends StatelessWidget {
           ),
         ),
         child: Text(
-          "Não tem conta? Cadastre-se",
-          style: TextStyle(color: Colors.black, fontSize: 15),
+          isLogin
+              ? "Não tem conta? Cadastre-se."
+              : "Já tem conta? Logue clicando aqui.",
+          style: const TextStyle(color: Colors.black, fontSize: 15),
         ),
       ),
     );

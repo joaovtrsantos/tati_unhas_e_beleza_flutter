@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/PaginaInicial.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/login/Login.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/LoginCadastro.dart';
 
-class VerificadorLogado extends StatefulWidget {
-  const VerificadorLogado({super.key});
+class DecisorTela extends StatefulWidget {
+  const DecisorTela({super.key});
 
   @override
-  State<VerificadorLogado> createState() => _VerificadorLogadoState();
+  State<DecisorTela> createState() => _DecisorTelaState();
 }
 
-class _VerificadorLogadoState extends State<VerificadorLogado> {
+class _DecisorTelaState extends State<DecisorTela> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -19,9 +19,9 @@ class _VerificadorLogadoState extends State<VerificadorLogado> {
         if (snapshot.hasData) {
           return TatiUnhasEBelezaApp();
         } else {
-          return const Login();
+          return const LoginCadastro();
         }
       }
-      );
+    );
   }
 }
