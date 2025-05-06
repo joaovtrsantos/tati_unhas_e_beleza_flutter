@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/login/Login.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/LoginCadastro.dart';
 
 class BotaoAgendamento extends StatelessWidget {
   const BotaoAgendamento({super.key});
@@ -15,7 +15,7 @@ class BotaoAgendamento extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context, 
-                MaterialPageRoute(builder: (context) => const Login())
+                MaterialPageRoute(builder: (context) => const LoginCadastro())
               );
             },
             style: ButtonStyle(

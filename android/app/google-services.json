@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "300694804843",
+    "project_id": "taty-unhas-beleza",
+    "storage_bucket": "taty-unhas-beleza.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300694804843:android:47c116e1c6bda60e76542e",
+        "android_client_info": {
+          "package_name": "com.example.tati_unhas_e_beleza_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPqo7knRTnjq0R9Ubfqq4cAf_Tg-j9UwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

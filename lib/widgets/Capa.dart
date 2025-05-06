@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/ImagensCapa.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/Slogan.dart';
 
 class Capa extends StatelessWidget {
   const Capa({super.key});
