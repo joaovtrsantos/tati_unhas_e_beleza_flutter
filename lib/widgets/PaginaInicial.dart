@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/BotaoAgendamento.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Cabecalho.dart';
@@ -7,6 +8,7 @@ import 'package:tati_unhas_e_beleza_flutter/widgets/QuemSomos.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Rodape.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/Slogan.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/SubtextoSlogan.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 
 class TatiUnhasEBelezaAppState extends State<TatiUnhasEBelezaApp> {
   @override
