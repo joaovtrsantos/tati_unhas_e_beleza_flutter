@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/PaginaInicial.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/BotaoCadastro.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/BotaoSubmit.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/InputFormulario.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/PaginaLoginCadastro.dart';
 
 class FormularioLoginCadastro extends StatelessWidget {
   const FormularioLoginCadastro({this.isLogin = true, required this.onAlternarModo, super.key});
@@ -53,9 +55,17 @@ class FormularioLoginCadastro extends StatelessWidget {
           const SizedBox(height: 30),
           BotaoSubmit(
            onPressed: () async {
-            isLogin 
-            ? await signInWithEmailAndPassword() 
-            : createUserWithEmailAndPassword();
+            if(isLogin) {
+              await signInWithEmailAndPassword();
+              if (context.mounted){
+                Navigator.push(context, MaterialPageRoute(builder: (_) =>  TatiUnhasEBelezaApp()));
+              }
+            } else {
+              createUserWithEmailAndPassword();
+              if (context.mounted){
+                Navigator.push(context, MaterialPageRoute(builder: (_) => LoginCadastro()));
+              }
+            }
            },
            texto: isLogin ? "Entrar" : "Cadastrar",
           ),
