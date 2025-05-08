@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/agendamento/Agendamento.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/login/LoginCadastro.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/PaginaLoginCadastro.dart';
 
 class BotaoAgendamento extends StatelessWidget {
   const BotaoAgendamento({super.key});
@@ -11,7 +11,6 @@ class BotaoAgendamento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final User? user = Auth().currentUser;
-    print(user);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

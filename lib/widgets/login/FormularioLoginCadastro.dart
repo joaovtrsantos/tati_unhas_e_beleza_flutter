@@ -5,7 +5,7 @@ import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/BotaoCadastro.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/BotaoSubmit.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/InputFormulario.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/login/LoginCadastro.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/PaginaLoginCadastro.dart';
 
 class FormularioLoginCadastro extends StatelessWidget {
   const FormularioLoginCadastro({this.isLogin = true, required this.onAlternarModo, super.key});

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/Cabecalho.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/FormularioLoginCadastro.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/LoginCadastroTitulo.dart';
 
 class LoginCadastro extends StatefulWidget {
-  const LoginCadastro({super.key});
+  const  LoginCadastro({super.key});
 
   @override
   State<LoginCadastro> createState() => _LoginCadastroState();
@@ -21,7 +22,7 @@ class _LoginCadastroState extends State<LoginCadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Color.fromARGB(255, 255, 230, 240)),
+        appBar: Cabecalho(),
         body: ListView(
           children: [
             Column(
