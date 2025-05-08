@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tati_unhas_e_beleza_flutter/widgets/agendamento/Agendamento.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/agendamento/PaginaAgendamento.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/PaginaLoginCadastro.dart';
 
@@ -31,10 +31,9 @@ class BotaoAgendamento extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Agendamento()
+                    builder: (context) => PaginaAgendamento()
                   )
                 );
-                Text('Estou chegando lá');
               }
              
             },
