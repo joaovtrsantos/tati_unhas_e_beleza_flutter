@@ -65,7 +65,7 @@ class FormularioLoginCadastro extends StatelessWidget {
           InputFormulario(_controllerEmail),
           const SizedBox(height: 20),
           const Text('Senha', textAlign: TextAlign.left),
-          InputFormulario(_controllerSenha),
+          InputFormulario(_controllerSenha, isSenha: true),
           if (!isLogin) ...[
             SizedBox(height: 20),
             const Text('Nome', textAlign: TextAlign.left),
