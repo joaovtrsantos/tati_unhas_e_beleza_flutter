@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tati_unhas_e_beleza_flutter/main.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/PaginaInicial.dart';
 import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 
@@ -107,8 +105,9 @@ class _PaginaAgendamentoState extends State<PaginaAgendamento> {
                         date.weekday != DateTime.monday;
                   },
                 );
-                if (horarioEscolhido != null)
+                if (horarioEscolhido != null) {
                   setState(() => dataSelecionada = horarioEscolhido);
+                }
               },
               child: Text(
                 dataSelecionada == null
