@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tati_unhas_e_beleza_flutter/main.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/PaginaInicial.dart';
+import 'package:tati_unhas_e_beleza_flutter/widgets/login/Auth.dart';
 
 class PaginaAgendamento extends StatefulWidget {
   @override
@@ -9,6 +14,7 @@ class _PaginaAgendamentoState extends State<PaginaAgendamento> {
   DateTime? dataSelecionada;
   String? horaSelecionada;
   String? servicoSelecionado;
+  bool _carregando = false;
 
   final horariosDisponiveis = [
     "08:00",
@@ -31,6 +37,54 @@ class _PaginaAgendamentoState extends State<PaginaAgendamento> {
 
   final servicos = ["Manicure", "Pedicure", "Manicure e Pedicure"];
 
+  DateTime _proximaDataValida(DateTime data) {
+    while (data.weekday == DateTime.sunday || data.weekday == DateTime.monday) {
+      data = data.add(Duration(days: 1));
+    }
+    return data;
+  }
+
+  Future<bool> criacaoAgendamento() async {
+    try {
+      final authUser = Auth().currentUser;
+      if (authUser == null) return false;
+
+      final snapshot =
+          await FirebaseFirestore.instance
+              .collection('Usuarios')
+              .where('email', isEqualTo: authUser.email)
+              .limit(1)
+              .get();
+
+      if (snapshot.docs.isEmpty) return false;
+      final usuario = snapshot.docs.first;
+
+      final partesHora = horaSelecionada!.split(":");
+      final hora = int.parse(partesHora[0]);
+      final minuto = int.parse(partesHora[1]);
+      final dataHoraFinal = DateTime(
+        dataSelecionada!.year,
+        dataSelecionada!.month,
+        dataSelecionada!.day,
+        hora,
+        minuto,
+      );
+
+      await FirebaseFirestore.instance.collection('Agendamentos').add({
+        'clienteNome': usuario['nome'],
+        'criadoEm': DateTime.now(),
+        'data': dataHoraFinal,
+        'status': "pendente",
+        'usuarioId': usuario.id,
+        'servico': servicoSelecionado,
+      });
+
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,14 +99,16 @@ class _PaginaAgendamentoState extends State<PaginaAgendamento> {
               onPressed: () async {
                 final horarioEscolhido = await showDatePicker(
                   context: context,
-                  initialDate: DateTime.now(),
+                  initialDate: _proximaDataValida(DateTime.now()),
                   firstDate: DateTime.now(),
                   lastDate: DateTime.now().add(Duration(days: 30)),
-                  selectableDayPredicate: (DateTime date){
-                    return date.weekday != DateTime.sunday && date.weekday != DateTime.monday;
+                  selectableDayPredicate: (DateTime date) {
+                    return date.weekday != DateTime.sunday &&
+                        date.weekday != DateTime.monday;
                   },
                 );
-                if (horarioEscolhido != null) setState(() => dataSelecionada = horarioEscolhido);
+                if (horarioEscolhido != null)
+                  setState(() => dataSelecionada = horarioEscolhido);
               },
               child: Text(
                 dataSelecionada == null
@@ -94,13 +150,31 @@ class _PaginaAgendamentoState extends State<PaginaAgendamento> {
               onPressed:
                   dataSelecionada != null &&
                           horaSelecionada != null &&
-                          servicoSelecionado != null
-                      ? () {
-                        
+                          servicoSelecionado != null &&
+                          !_carregando
+                      ? () async {
+                        if (_carregando) return;
+                        setState(() => _carregando = true);
+                        final sucesso = await criacaoAgendamento();
+                        if (!mounted) return;
+                        if (sucesso) {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TatiUnhasEBelezaApp(),
+                            ),
+                            (route) => false,
+                          );
+                        } else {
+                          setState(() => _carregando = false);
+                        }
                       }
                       : null,
               style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
-              child: Text("Confirmar Agendamento"),
+              child:
+                  _carregando
+                      ? CircularProgressIndicator(color: Colors.white)
+                      : Text("Confirmar Agendamento"),
             ),
           ],
         ),
