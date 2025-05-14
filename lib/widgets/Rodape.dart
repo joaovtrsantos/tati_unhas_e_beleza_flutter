@@ -9,21 +9,14 @@ class Rodape extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 92,
-      width: 440,
-      padding: EdgeInsets.fromLTRB(32, 16, 32, 14),
+      padding: EdgeInsets.fromLTRB(5, 16, 5, 14),
       color: const Color.fromARGB(255, 255, 230, 240), // fundo rosa claro
-      child:  Row(
+      child: Row(
         children: [
-          Expanded(
-            flex: 9,
-            child: Informacoes(),
-          ),
-          Expanded(
-            flex: 3,
-            child: RedesSociais()
-          )
+          Expanded(flex: 9, child: Informacoes()),
+          Expanded(flex: 3, child: RedesSociais()),
         ],
-      )
+      ),
     );
   }
 }

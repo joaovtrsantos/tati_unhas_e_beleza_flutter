@@ -14,8 +14,8 @@ class Informacoes extends StatelessWidget {
             Padding(padding: EdgeInsets.only(left: 5)),
             Text(
               'tatyunhasbeleza@gmail.com',
-              style: TextStyle(fontSize: 10),
-            ), //TODO: Ajustar para o email real da empresa.
+              style: TextStyle(fontSize: 13),
+            ),
           ],
         ),
         Row(
@@ -24,8 +24,8 @@ class Informacoes extends StatelessWidget {
             Padding(padding: EdgeInsets.only(left: 5)),
             Text(
               '47 98475-5297',
-              style: TextStyle(fontSize: 10),
-            ), //TODO: Ajustar para o email real da empresa.
+              style: TextStyle(fontSize: 13),
+            ),
           ],
         ),
          Row(
@@ -34,8 +34,8 @@ class Informacoes extends StatelessWidget {
             Padding(padding: EdgeInsets.only(left: 5)),
             Text(
               'Rua João Manoel dos Santos,  86, Itaum, Joinville',
-              style: TextStyle(fontSize: 10),
-            ), //TODO: Ajustar para o email real da empresa.
+              style: TextStyle(fontSize: 12),
+            ),
           ],
         )
       ],
